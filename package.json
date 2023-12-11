@@ -1,0 +1,14 @@
+{
+  "name": "mygame",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gameStarter.js",
+  "scripts": {
+    "test": "nodemon gameStarter.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
+}
