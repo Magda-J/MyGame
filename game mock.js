@@ -6,7 +6,6 @@ class Room {
       this._character = "";
       this._item = "";
       this._lute = "";
-      this._wrongitem = "";
     }
   
     set item(value) {
@@ -15,13 +14,6 @@ class Room {
   
     get item() {
       return this._item;
-    }
-    set wrongItem(value) {
-      this._wrongitem = value;
-    }
-  
-    get wrongItem() {
-      return this._wrongitem;
     }
     set lute(value) {
         this._lute = value;
@@ -127,43 +119,6 @@ class Room {
       return "The friendly citizen in this room offers you the " + this._name + " is " + this._description;
     }
   }
-
-// Item class
-class wrongItem {
-  constructor(name) {
-    this._name = name;
-    this._description = "";
-  }
-
-  set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short.");
-      return;
-    }
-    this._name = value;
-  }
-
-  set description(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
-    this._description = value;
-  }
-
-  get name() {
-    return this._name;
-  }
-
-  get description() {
-    return this._description;
-  }
-
-  describe() {
-    return "The other weapon in the room is the " + this._name + " is " + this._description;
-  }
-}
-
   
   // Character class
   class Character {
@@ -281,36 +236,21 @@ class wrongItem {
   const Sword = new Item("Sword");
   Sword.description = "which is a magical sword with spells that should help defeat any enemy";
 
-  
+  const Knife = new Item("Knife");
+  Knife.description = "which is a simple knife which should be good enough for defence";
+
   
   // Assign items to rooms
   PoliceStation.item = Pistol;
   KarateDojo.item = Sword;
   Library.item = Book;
-   
+  
+  
   MeatShop.item = "";
   CityCastle.item = "";
   
- // Set up items
- const Manuscript = new wrongItem("Manuscript");
- Manuscript.description = "which is a magical item ";
  
- const Knife = new wrongItem("Knife");
- Knife.description = "which is a powerful weapon ";
- 
- const Nunchaku = new wrongItem("Nunchaku");
- Nunchaku.description = "which is a magical item";
 
-//  Assign wrong items to rooms
- PoliceStation.wrongItem = Knife;
- KarateDojo.wrongItem = Nunchaku;
- Library.wrongItem = Manuscript;
- 
- MeatShop.wrongItem = "";
- CityCastle.wrongItem = "";
-
-
- 
 
 // Allow user to collect item by pushing it to the array 
 const itemsCreatedFromClass = []
@@ -318,14 +258,6 @@ const itemsCreatedFromClass = []
 itemsCreatedFromClass.push(Sword)
   itemsCreatedFromClass.push(Book)
   itemsCreatedFromClass.push(Pistol)
-
-
-  // allow user to collect wrong item by pushing it to the array 
-  const wrongItemsCreatedFromClass = []
-
-  wrongItemsCreatedFromClass.push(Knife)
-  wrongItemsCreatedFromClass.push(Nunchaku)
-  wrongItemsCreatedFromClass.push(Manuscript)
 
   
   // Characters
@@ -373,15 +305,15 @@ itemsCreatedFromClass.push(Sword)
     } else {
       itemMsg = room.item.describe() + ". "
     }
-    let wrongitmMsg = ""
-    if (room.wrongItem === "") {
-      wrongitmMsg = ""
+    let luteMsg = ""
+    if (room.lute === "") {
+      luteMsg = ""
     } else {
-      wrongitmMsg = room.wrongItem.describe() + ". "
+      luteMsg = room.lute.describe() + ". "
     }
   
     textContent = "<p>" + room.describe() + "</p>" + "<p>" +
-    occupantMsg + "</p>" + "<p>" + itemMsg + "</p>" + "<p>" + wrongitmMsg + "</p>" + "<p>" + room.getDetails() + "</p>";
+    occupantMsg + "</p>" + "<p>" + itemMsg + "</p>" + "<p>" + luteMsg + "</p>" + "<p>" + room.getDetails() + "</p>";
   
     document.getElementById("textarea").innerHTML = textContent;
     document.getElementById("usertext").innerHTML = '><input type="text" id="usertext" />';
@@ -401,7 +333,6 @@ itemsCreatedFromClass.push(Sword)
         command = document.getElementById("usertext").value;
         const directions = ["north", "south", "east", "west"];
         const validItems = ["pistol", "book", "sword"]
-        const wrongItems = ["knife", "nunchaku", "manuscript"]
         if (directions.includes(command.toLowerCase())) {
           currentRoom = currentRoom.move(command);
           document.getElementById("usertext").value = "";
@@ -412,14 +343,9 @@ itemsCreatedFromClass.push(Sword)
           const locateItemObject = itemsCreatedFromClass.find(item => item._name.toLowerCase() === command.split(" ")[1].toLowerCase())
           console.log(locateItemObject)
           collectItem(locateItemObject);
-        } else if (
-          command.startsWith("pickup") && wrongItems.includes(command.split(" ")[1].toLowerCase())
-        ) {
-          const wronglocateItemObject = wrongItemsCreatedFromClass.find(wrongitem => wrongitem._name.toLowerCase() === command.split(" ")[1].toLowerCase())
-          console.log(wronglocateItemObject)
-          collectWrongItem(wronglocateItemObject);
-        } 
-                
+        }
+        
+        
         else {
           document.getElementById("usertext").value = "";
           alert("That is not a valid command. Please try again.");
@@ -459,44 +385,6 @@ itemsCreatedFromClass.push(Sword)
         // Set a timeout to clear the notification after a few seconds (3 seconds)
         setTimeout(() => {
             notificationElement.innerHTML = "";
-        }, 2000);
-    }
-    
-
-  }
-
-
-  let wrongUserItems = [];
-
-  function collectWrongItem(wrongitemName) {
-    console.log(wrongitemName)
-    console.log(currentRoom)
-      if (currentRoom._item && currentRoom._wrongitem._name.toLowerCase() === wrongitemName._name.toLowerCase()) {
-        console.log("condition is met")
-        // Collect the item
-        wrongUserItems.push(currentRoom.wrongitem);
-        currentRoom._wrongitem = null; // Remove the item from the room
-        console.log(currentRoom._wrongitem)
-        
-        
-        const wrongnotificationElement = document.getElementById("textnotif");
-        const wrongitemStatus = document.getElementById("kingItem");
-
-        // Modify the innerHTML to show the item has been collected
-        wrongnotificationElement.innerHTML = "<p>You have picked up the wrong item. You are losing the game!</p>";
-        wrongitemStatus.innerHTML = wrongitemName._name + " has been picked up. This is not a good type of weapon to fight infected mushrooms. Game over ;(";
-        // Set a timeout to clear the notification after a few seconds (3 seconds)
-        setTimeout(() => {
-            wrongnotificationElement.innerHTML = "";
-            
-        }, 2000); // Adjust the duration as needed
-    } else {
-        const wrongnotificationElement = document.getElementById("textnotif");
-        wrongnotificationElement.innerHTML = "<p>Sorry! There is no such item in this location. Try again :)</p>";
-
-        // Set a timeout to clear the notification after a few seconds (3 seconds)
-        setTimeout(() => {
-            wrongnotificationElement.innerHTML = "";
         }, 2000);
     }
     
