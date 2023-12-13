@@ -421,7 +421,8 @@ itemsCreatedFromClass.push(Sword)
         } else if (
           command.startsWith("hit")
         ) {
-        endGame();
+          // FIX IT
+        endGame(endNotification);
         } 
                 
         else {
@@ -506,6 +507,12 @@ itemsCreatedFromClass.push(Sword)
     
 
   }
+
+  // SORT IT OUT TMR
+// function endGame(endNotification) {
+//   const endNotification = document.getElementById("textnotif");
+//   endNotification.innerHTML = "<p> You won the game!</p>";
+// }
 
 
   // User input
