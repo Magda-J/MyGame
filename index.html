@@ -19,45 +19,49 @@
     <div id="startpage" class="md:max-w-[1000px] mx-auto mt-40">
       <div class="bg-blue-600 p-4 border rounded">
         <h1
-          class="animate-pulse font-bold text-white text-2xl text-justify mb-4 text-center"
+          class="animate-pulse font-bold text-white text-2xl text-justify mb-4 text-center font-mono"
         >
           Angry Mushrooms Game
         </h1>
         <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white">
+        <p class="startPg text-justify text-white font-mono">
           In the enchanting Fungal Kingdom, Mushroom King returns from his
           diplomatic mission to a realm besieged by an angry wizard's curse.
           Citizens transform into ferocious Angry Mushrooms, and the only known
           solution is to defeat them.
         </p>
-        <p class="startPg text-justify text-white">
+
+        <p class="startPg text-justify text-white font-mono">
           Mushroom King embarks on a perilous journey through his Kingdom to
           enter and regain control over his castle.
         </p>
         <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white">
+        <p class="startPg text-justify text-white font-mono">
           To clear his path, he battles the enraged mushrooms and seeks
           assistance from uninfected allies by
-          <strong>collecting objects</strong>from them and
-          <strong>conversing</strong> to find out where the infected mushrooms
-          may be hiding.
+          <strong class="underline">collecting</strong> or
+          <strong class="underline">picking up</strong> objects offered by them.
         </p>
         <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white">
+        <p class="startPg text-justify text-white font-mono">
           To explore the Kingdom as the Mushroom King character and engage with
           your surroundings, you can employ a variety of
-          <strong>two-word</strong> commands, such as "walk south", "collect
-          axe". All possible commands are typically
-          <strong>highlighted</strong>.
+          <strong class="underline">two-word</strong> and
+          <strong class="underline">one-word</strong> commands, such as "south"
+          for direction, or "collect axe" to collect an item. All possible
+          commands are typically
+          <strong>highlighted</strong> and <strong class="underline">underlined</strong>.
         </p>
         <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-center text-white">
+        <p class="startPg text-center text-white font-mono">
           <strong>Good Luck!</strong>
         </p>
       </div>
 
       <div id="startPg" class="grid grid-cols-1 content-center bg-blue-200">
-        <h2 class="startPg mx-auto text-blue-600 font-bold text-lg pt-6 pb-8">
+        <h2
+          class="startPg mx-auto text-blue-600 font-bold text-lg pt-6 pb-8 font-mono"
+        >
           Enter your name and start the Game
         </h2>
         <input
@@ -68,7 +72,7 @@
         />
         <br />
         <button
-          class="startbutton hover:bg-green-700 text-white font-bold mb-4 mt-4 w-[200px] mx-auto border rounded bg-blue-600"
+          class="startbutton hover:bg-green-700 text-white font-bold mb-4 mt-4 w-[200px] mx-auto border rounded bg-blue-600 font-mono"
           id="startbutton"
           onclick="startG()"
         >
@@ -84,17 +88,18 @@
       <div
         class="grid sm:col-span-12 bg-blue-600 p-2 h-80 text-center content-center"
       >
-        <p id="textarea" class="text-white"></p>
+        <p id="textarea" class="text-white font-mono"></p>
         <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p id="textnotif" class="text-lg text-green-500 font-bold"></p>
+        <p
+          id="textnotif"
+          class="text-lg text-green-500 font-bold font-mono"
+        ></p>
       </div>
 
       <div id="details" class="sm:col-span-12 bg-blue-200 p-2 border rounded">
         <div>
           <div>
-            <p class="font-bold mb-4">
-              Enter your next move below
-            </p>
+            <p class="font-bold mb-4 font-mono">Enter your next move below</p>
             <input type="text" id="usertext" />
           </div>
         </div>
@@ -105,13 +110,14 @@
         id="playerdetails"
         class="sm:col-span-12 bg-blue-200 min-h-[50px] p-2 relative"
       >
-        <p class="font-bold">Mushroom King</p>
+        <p class="font-bold font-mono">Mushroom King</p>
         <hr class="h-2 my-1 bg-blue-600" />
-        <p class="heading">
-          King's Name: <span id="playerName" class="font-bold"></span>
+        <p class="heading font-mono">
+          King's Name: <span id="playerName" class="font-bold font-mono"></span>
         </p>
-        <p class="heading">Item/Weapon: <span id="kingItem" class="font-bold"></span></p>
-        
+        <p class="heading font-mono">
+          Item/Weapon: <span id="kingItem" class="font-bold font-mono"></span>
+        </p>
       </div>
       <!-- End of Player Details -->
     </div>

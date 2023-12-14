@@ -65,7 +65,7 @@ class Room {
     }
   
     describe() {
-      return "Looking around the " + this._name + " you can see " + this._description;
+      return "<u><strong>Location Description:</strong></u> Looking around the " + this._name + " you can see " + this._description;
     }
   
     linkRoom(direction, roomToLink) {
@@ -210,7 +210,7 @@ class wrongItem {
     }
   
     describe() {
-      return "You have met " + this._name + ", " + this._name + " is " + this._description;
+      return "<u><strong>Citizen:</strong></u> You have met " + this._name + ", " + this._name + " is " + this._description;
     }
   
     converse() {
