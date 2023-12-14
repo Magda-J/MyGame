@@ -506,6 +506,7 @@ function collectItem(itemName) {
     // Set a timeout to clear the notification after a few seconds (3 seconds)
     setTimeout(() => {
       notificationElement.innerHTML = "";
+      document.getElementById("usertext").value = ""; // Clear the user input field
     }, 2000); // Adjust the duration as needed
   } else {
     const notificationElement = document.getElementById("textnotif");
@@ -547,6 +548,7 @@ function collectWrongItem(wrongitemName) {
     // Set a timeout to clear the notification after a few seconds (3 seconds)
     setTimeout(() => {
       wrongnotificationElement.innerHTML = "";
+      document.getElementById("usertext").value = ""; // Clear the user input field
     }, 2000); // Adjust the duration as needed
   } else {
     const wrongnotificationElement = document.getElementById("textnotif");
