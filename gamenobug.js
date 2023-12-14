@@ -228,7 +228,7 @@ class Character {
 
   describe() {
     return (
-      "<strong>CITIZEN:</strong> You have met " +
+      "<em><strong>CITIZEN:</strong></em> You have met " +
       this._name +
       ", " +
       this._name +
@@ -436,6 +436,7 @@ function startGame() {
   currentRoom = PoliceStation;
   console.log(currentRoom);
   displayRoomInfo(currentRoom);
+  
 
   // Handle commands
   document.addEventListener("keydown", function (event) {
@@ -598,6 +599,7 @@ const changeName = (name) => {
   un = document.getElementById("playerName");
   console.log(un);
   un.innerHTML = urName;
+  
 };
 
 // Function to show the game area and populate player name
@@ -608,6 +610,7 @@ const startG = () => {
   }
   document.getElementById("startpage").classList.add("hidden");
   document.getElementById("game").classList.remove("hidden");
+  
 };
 
 // Start the game
