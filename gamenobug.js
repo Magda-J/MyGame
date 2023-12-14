@@ -418,8 +418,11 @@ itemsCreatedFromClass.push(Sword)
           const wronglocateItemObject = wrongItemsCreatedFromClass.find(wrongitem => wrongitem._name.toLowerCase() === command.split(" ")[1].toLowerCase())
           console.log(wronglocateItemObject)
           collectWrongItem(wronglocateItemObject);
-        } 
-                
+        } else if (
+          command.trim().toLowerCase() === "hit") 
+        {
+          endGame();
+        }       
         else {
           document.getElementById("usertext").value = "";
           alert("That is not a valid command. Please try again.");
@@ -465,7 +468,7 @@ itemsCreatedFromClass.push(Sword)
 
   }
 
-
+  
   let wrongUserItems = [];
 
   function collectWrongItem(wrongitemName) {
@@ -497,11 +500,19 @@ itemsCreatedFromClass.push(Sword)
         // Set a timeout to clear the notification after a few seconds (3 seconds)
         setTimeout(() => {
             wrongnotificationElement.innerHTML = "";
-        }, 2000);
+        }, 3000);
     }
     
 
   }
+
+  //End game cotification 
+function endGame() {
+  const endNotification = document.getElementById("textnotif");
+  endNotification.innerHTML = "<p> You won the game!</p>";
+  console.log(endNotification);
+}
+
 
   // User input
   let urName = "";
