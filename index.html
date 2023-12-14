@@ -12,116 +12,119 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!--Tailwind css-->
   </head>
-  <body>
+  <body class="bg-[url('https://i.postimg.cc/PqWCcnD1/7135700.jpg')] bg-cover h-full w-full">
     <!-- Start Screen Code -->
 
     <!-- End of Start Screen Code -->
-    <div id="startpage" class="md:max-w-[1000px] mx-auto mt-40">
-      <div class="bg-blue-600 p-4 border rounded">
-        <h1
-          class="animate-pulse font-bold text-white text-2xl text-justify mb-4 text-center font-mono"
-        >
-          Angry Mushrooms Game
-        </h1>
-        <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white font-mono">
-          In the enchanting Fungal Kingdom, Mushroom King returns from his
-          diplomatic mission to a realm besieged by an angry Wizard's curse.
-          Citizens transform into ferocious Angry Mushrooms, and the only known
-          solution is to fight them in self-defence using magical items or kill
-          the Wizard who cursed them.
-        </p>
+    <div id="container">
+      <div id="startpage" class="md:max-w-[1000px] mx-auto mt-20">
+        <div class="bg-blue-600 p-4 border rounded">
+          <h1
+            class="animate-pulse font-bold text-white text-2xl text-justify mb-4 text-center font-mono"
+          >
+            Angry Mushrooms Game
+          </h1>
+          <hr class="border-2 border-blue-300 mb-4 mt-4" />
+          <p class="startPg text-justify text-white font-mono">
+            In the enchanting Fungal Kingdom, Mushroom King returns from his
+            diplomatic mission to a realm besieged by an angry Wizard's curse.
+            Citizens transform into ferocious Angry Mushrooms, and the only
+            known solution is to fight them in self-defence using magical items
+            or kill the Wizard who cursed them.
+          </p>
 
-        <p class="startPg text-justify text-white font-mono">
-          Mushroom King embarks on a perilous journey through his Kingdom to
-          enter and regain control over his castle.
-        </p>
-        <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white font-mono">
-          To clear his path, he battles the enraged mushrooms and seeks
-          assistance from uninfected allies by
-          <strong class="underline">collecting</strong> or
-          <strong class="underline">fetching</strong> objects offered by them.
-        </p>
-        <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-justify text-white font-mono">
-          To explore the Kingdom as the Mushroom King character and engage with
-          your surroundings, you can employ a variety of
-          <strong class="underline">two-word</strong> and
-          <strong class="underline">one-word</strong> commands, such as "south"
-          for direction, or "collect axe" to collect an item. Some commands are
-          <strong>highlighted</strong> and
-          <strong class="underline">underlined</strong> other you need to figure
-          out yourself.
-        </p>
-        <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p class="startPg text-center text-white font-mono">
-          <strong>Good Luck!</strong>
-        </p>
-      </div>
+          <p class="startPg text-justify text-white font-mono">
+            Mushroom King embarks on a perilous journey through his Kingdom to
+            enter and regain control over his castle.
+          </p>
+          <hr class="border-2 border-blue-300 mb-4 mt-4" />
+          <p class="startPg text-justify text-white font-mono">
+            To clear his path, he battles the enraged mushrooms and seeks
+            assistance from uninfected allies by
+            <strong class="underline">collecting</strong> or
+            <strong class="underline">fetching</strong> objects offered by them.
+          </p>
+          <hr class="border-2 border-blue-300 mb-4 mt-4" />
+          <p class="startPg text-justify text-white font-mono">
+            To explore the Kingdom as the Mushroom King character and engage
+            with your surroundings, you can employ a variety of
+            <strong class="underline">two-word</strong> and
+            <strong class="underline">one-word</strong> commands, such as
+            "south" for direction, or "collect axe" to collect an item. Some
+            commands are <strong>highlighted</strong> and
+            <strong class="underline">underlined</strong> other you need to
+            figure out yourself.
+          </p>
+          <hr class="border-2 border-blue-300 mb-4 mt-4" />
+          <p class="startPg text-center text-white font-mono">
+            <strong>Good Luck!</strong>
+          </p>
+        </div>
 
-      <div id="startPg" class="grid grid-cols-1 content-center bg-blue-200">
-        <h2
-          class="startPg mx-auto text-blue-600 font-bold text-lg pt-6 pb-8 font-mono"
-        >
-          Enter your name and start the Game
-        </h2>
-        <input
-          type="text"
-          id="nameInput"
-          oninput="changeName(this.value)"
-          class="w-[200px] h-[40px] mx-auto"
-        />
-        <br />
-        <button
-          class="startbutton hover:bg-green-700 text-white font-bold mb-4 mt-4 w-[200px] mx-auto border rounded bg-blue-600 font-mono"
-          id="startbutton"
-          onclick="startG()"
-        >
-          Start the Game
-        </button>
-      </div>
-    </div>
-    <!-- Start of the game -->
-    <div
-      id="game"
-      class="hidden grid gap-2 grid-cols-1 sm:grid-cols-12 md:max-w-[1000px] mx-auto mt-40 border round"
-    >
-      <div
-        class="grid sm:col-span-12 bg-blue-600 p-2 text-center content-center"
-      >
-        <p id="textarea" class="text-white font-mono"></p>
-        <hr class="border-2 border-blue-300 mb-4 mt-4" />
-        <p
-          id="textnotif"
-          class="text-md md:text-lg text-green-500 font-bold font-mono"
-        ></p>
-      </div>
-
-      <div id="details" class="sm:col-span-12 bg-blue-200 p-2 border rounded">
-        <div>
-          <div>
-            <p class="font-bold mb-4 font-mono">Enter your next move below</p>
-            <input type="text" id="usertext" />
-          </div>
+        <div id="startPg" class="grid grid-cols-1 content-center bg-blue-200">
+          <h2
+            class="startPg mx-auto text-blue-600 font-bold text-lg pt-6 pb-8 font-mono"
+          >
+            Enter your name and start the Game
+          </h2>
+          <input
+            type="text"
+            id="nameInput"
+            oninput="changeName(this.value)"
+            class="w-[200px] h-[40px] mx-auto"
+          />
+          <br />
+          <button
+            class="startbutton hover:bg-green-700 text-white font-bold mb-4 mt-4 w-[200px] mx-auto border rounded bg-blue-600 font-mono"
+            id="startbutton"
+            onclick="startG()"
+          >
+            Start the Game
+          </button>
         </div>
       </div>
-
-      <!-- Player Details -->
+      <!-- Start of the game -->
       <div
-        id="playerdetails"
-        class="sm:col-span-12 bg-blue-200 min-h-[50px] p-2 relative"
+        id="game"
+        class="hidden grid gap-2 grid-cols-1 sm:grid-cols-12 md:max-w-[1000px] mx-auto mt-20 border round"
       >
-        <p class="font-bold font-mono">Mushroom King</p>
-        <hr class="h-2 my-1 bg-blue-600" />
-        <p class="heading font-mono">
-          King's Name: <span id="playerName" class="font-bold font-mono"></span>
-        </p>
-        <p class="heading font-mono">
-          Item/Weapon: <span id="kingItem" class="font-bold font-mono"></span>
-        </p>
+        <div
+          class="grid sm:col-span-12 bg-blue-600 p-2 text-center content-center"
+        >
+          <p id="textarea" class="text-white font-mono"></p>
+          <hr class="border-2 border-blue-300 mb-4 mt-4" />
+          <p
+            id="textnotif"
+            class="text-md md:text-lg text-green-500 font-bold font-mono"
+          ></p>
+        </div>
+
+        <div id="details" class="sm:col-span-12 bg-blue-200 p-2 border rounded">
+          <div>
+            <div>
+              <p class="font-bold mb-4 font-mono">Enter your next move below</p>
+              <input type="text" id="usertext" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Player Details -->
+        <div
+          id="playerdetails"
+          class="sm:col-span-12 bg-blue-200 min-h-[50px] p-2 relative"
+        >
+          <p class="font-bold font-mono">Mushroom King</p>
+          <hr class="h-2 my-1 bg-blue-600" />
+          <p class="heading font-mono">
+            King's Name:
+            <span id="playerName" class="font-bold font-mono"></span>
+          </p>
+          <p class="heading font-mono">
+            Item/Weapon: <span id="kingItem" class="font-bold font-mono"></span>
+          </p>
+        </div>
+        <!-- End of Player Details -->
       </div>
-      <!-- End of Player Details -->
     </div>
     <!-- link to JavaScript-->
     <script src="gamenobug.js"></script>
