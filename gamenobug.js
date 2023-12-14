@@ -365,7 +365,7 @@ KarateMushroom.weakness = "pistol";
 
 const WizardMushroom = new Enemy("Wizard Mushroom");
 WizardMushroom.conversation =
-  "<strong>I deserve to be a new King of the Mushroom Land</strong>. <br><em><strong>OPTIONS:</strong></em> You can <u><strong>open</strong></u> the book that you collected in the previous room and try to read magic spell to defeat the Wizard <strong>OR</strong> you can <u><strong>hit</strong></u> the Wizzard with the book. Make the right choice to win the Game!</br>";
+  "<strong>I deserve to be a new King of the Mushroom Land</strong>. <br><em><strong>OPTIONS:</strong></em> You can <u><strong>open</strong></u> the book that you collected in the previous room and try to read magic spell to defeat the Wizard <strong>OR</strong> you can <u><strong>hit</strong></u> the Wizard with the book. Make the right choice to win the Game!</br>";
 WizardMushroom.description = "an angry wizard";
 WizardMushroom.weakness = "book";
 
@@ -473,6 +473,7 @@ function startGame() {
         endGame();
       } else if (command.trim().toLowerCase() === "open") {
         gameOver();
+        console.log(currentRoom);
       } else {
         document.getElementById("usertext").value = "";
         alert("That is not a valid command. Please try again.");
@@ -538,6 +539,9 @@ function collectWrongItem(wrongitemName) {
 
     const wrongnotificationElement = document.getElementById("textnotif");
     const wrongitemStatus = document.getElementById("kingItem");
+    document.getElementById("textarea").classList.add("hidden");
+    document.getElementById("details").classList.add("hidden");
+    document.getElementById("restartbtn").classList.remove("hidden");
 
     // Modify the innerHTML to show the item has been collected
     wrongnotificationElement.innerHTML =
@@ -573,8 +577,16 @@ function endGame() {
 function gameOver() {
   const gONotification = document.getElementById("textnotif");
   gONotification.innerHTML =
-    "<p> You opened the book and nothing happened! Wizzard just killed you! <u><strong>GAME OVER</u> :(</strong> </p>";
+    "<p>You opened the book and the spell was not working! Wizard just killed you! <u><strong>GAME OVER</strong></u> :( </p>";
+
+    document.getElementById("textarea").classList.add("hidden");
+    document.getElementById("details").classList.add("hidden");
+    // add remove hidden to restart button 
+    document.getElementById("restartbtn").classList.remove("hidden");
+    
 }
+
+
 
 // User input
 let urName = "";
