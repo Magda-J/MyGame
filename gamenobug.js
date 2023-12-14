@@ -572,6 +572,7 @@ function endGame() {
   const endNotification = document.getElementById("textnotif");
   endNotification.innerHTML = "<p> You won the game!</p>";
   console.log(endNotification);
+  document.getElementById("restartbtn").classList.remove("hidden");
 }
 
 //Gave over code
