@@ -520,13 +520,17 @@ function endGame() {
   // Function to take the user's name input
   const changeName = (name) => {
     urName = name;
+    console.log(urName);
+    un = document.getElementById("playerName");
+    console.log(un);
+    un.innerHTML = urName;
   };
   
   // Function to show the game area and populate player name
   const startG = () => {
     if (urName.length < 1) {
       alert("Please enter your name");
-      return;
+      return ;
     }
     document.getElementById("startpage").classList.add("hidden");
     document.getElementById("game").classList.remove("hidden");
