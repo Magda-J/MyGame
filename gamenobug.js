@@ -419,12 +419,10 @@ itemsCreatedFromClass.push(Sword)
           console.log(wronglocateItemObject)
           collectWrongItem(wronglocateItemObject);
         } else if (
-          command.startsWith("hit")
-        ) {
-          // FIX IT
-        endGame(endNotification);
-        } 
-                
+          command.trim().toLowerCase() === "hit") 
+        {
+          endGame();
+        }       
         else {
           document.getElementById("usertext").value = "";
           alert("That is not a valid command. Please try again.");
@@ -508,11 +506,12 @@ itemsCreatedFromClass.push(Sword)
 
   }
 
-  // SORT IT OUT TMR
-// function endGame(endNotification) {
-//   const endNotification = document.getElementById("textnotif");
-//   endNotification.innerHTML = "<p> You won the game!</p>";
-// }
+  //End game cotification 
+function endGame() {
+  const endNotification = document.getElementById("textnotif");
+  endNotification.innerHTML = "<p> You won the game!</p>";
+  console.log(endNotification);
+}
 
 
   // User input
