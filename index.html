@@ -12,12 +12,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <!--Tailwind css-->
   </head>
-  <body class="bg-[url('https://i.postimg.cc/PqWCcnD1/7135700.jpg')] bg-cover h-full w-full">
+  <body
+    class="bg-[url('https://i.postimg.cc/PqWCcnD1/7135700.jpg')] bg-cover h-full w-full"
+  >
     <!-- Start Screen Code -->
 
     <!-- End of Start Screen Code -->
     <div id="container">
-      <div id="startpage" class="md:max-w-[1000px] mx-auto mt-20">
+      <div id="startpage" class="md:max-w-[1000px] mx-auto mt-10">
         <div class="bg-blue-600 p-4 border rounded">
           <h1
             class="animate-pulse font-bold text-white text-2xl text-justify mb-4 text-center font-mono"
@@ -105,8 +107,15 @@
               <p class="font-bold mb-4 font-mono">Enter your next move below</p>
               <input type="text" id="usertext" />
             </div>
+            
           </div>
-        </div>
+        </div><button
+              class="hidden restartbtn mx-auto hover:bg-red-700 text-white font-bold mt-4 w-[200px] border rounded bg-blue-600 font-mono"
+              id="restartbtn"
+              onclick="window.location.reload()"
+            >
+              Click to try again!
+            </button>
 
         <!-- Player Details -->
         <div
