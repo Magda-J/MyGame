@@ -6,7 +6,6 @@ class Room {
     this._linkedRooms = {};
     this._character = "";
     this._item = "";
-    this._lute = "";
     this._wrongitem = "";
   }
 
@@ -24,14 +23,7 @@ class Room {
   get wrongItem() {
     return this._wrongitem;
   }
-  set lute(value) {
-    this._lute = value;
-  }
-
-  get lute() {
-    return this._lute;
-  }
-
+ 
   get name() {
     return this._name;
   }
@@ -45,18 +37,10 @@ class Room {
   }
 
   set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short.");
-      return;
-    }
     this._name = value;
   }
 
   set description(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
     this._description = value;
   }
 
@@ -95,10 +79,17 @@ class Room {
     if (direction in this._linkedRooms) {
       return this._linkedRooms[direction];
     } else {
-      alert("You can't go that way");
+    const directionNotif = document.getElementById("textnotif");
+    directionNotif.innerHTML =
+      "<p>Sorry! you can't go this way. Try again :)</p>";
+
+      setTimeout(() => {
+        directionNotif.innerHTML = "";
+      }, 2000);
+
       return this;
     }
-  }
+    }
 }
 
 // Item class
@@ -109,19 +100,11 @@ class Item {
   }
 
   set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short.");
-      return;
-    }
-    this._name = value;
+  this._name = value;
   }
 
   set description(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
-    this._description = value;
+  this._description = value;
   }
 
   get name() {
@@ -150,19 +133,11 @@ class wrongItem {
   }
 
   set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short.");
-      return;
-    }
     this._name = value;
   }
 
   set description(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
-    this._description = value;
+   this._description = value;
   }
 
   get name() {
@@ -192,27 +167,15 @@ class Character {
   }
 
   set name(value) {
-    if (value.length < 4) {
-      alert("Name is too short.");
-      return;
-    }
     this._name = value;
   }
 
   set description(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
-    this._description = value;
+  this._description = value;
   }
 
   set conversation(value) {
-    if (value.length < 4) {
-      alert("Conversation is too short.");
-      return;
-    }
-    this._conversation = value;
+  this._conversation = value;
   }
 
   get name() {
@@ -253,20 +216,9 @@ class Enemy extends Character {
   }
 
   set weakness(value) {
-    if (value.length < 4) {
-      alert("Description is too short.");
-      return;
-    }
-    this._weakness = value;
+  this._weakness = value;
   }
 
-  fight(item) {
-    if (item === this._weakness) {
-      return true;
-    } else {
-      return false;
-    }
-  }
 }
 
 // Individual room objects
@@ -478,7 +430,14 @@ function startGame() {
         console.log(currentRoom);
       } else {
         document.getElementById("usertext").value = "";
-        alert("That is not a valid command. Please try again.");
+      const commandNotif = document.getElementById("textnotif");
+      commandNotif.innerHTML =
+      "<p>That is not a valid command. Please try again.</p>";
+
+      setTimeout(() => {
+        commandNotif.innerHTML = "";
+      }, 2000);
+
       }
     }
   });
@@ -573,6 +532,7 @@ function endGame() {
   const endNotification = document.getElementById("textnotif");
   endNotification.innerHTML = "<p> You won the game!</p>";
   console.log(endNotification);
+  document.getElementById("details").classList.add("hidden");
   document.getElementById("restartbtn").classList.remove("hidden");
 }
 
@@ -607,7 +567,13 @@ const changeName = (name) => {
 // Function to show the game area and populate player name
 const startG = () => {
   if (urName.length < 1) {
-    alert("Please enter your name");
+  const nameNotif = document.getElementById("enterName");
+  nameNotif.innerHTML = "<p>Please enter your name :)</p>";
+
+      setTimeout(() => {
+        nameNotif.innerHTML = "";
+      }, 2000);
+
     return;
   }
   document.getElementById("startpage").classList.add("hidden");
