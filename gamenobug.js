@@ -1,3 +1,4 @@
+// Room class
 class Room {
   constructor(name) {
     this._name = name;
@@ -135,13 +136,13 @@ class Item {
     return (
       "<em><strong>AVAILABLE ITEMS:</strong></em>The friendly citizen in this room offers you the " +
       this._name +
-      " is " +
+      " " +
       this._description
     );
   }
 }
 
-// Item class
+// Wrong Item class
 class wrongItem {
   constructor(name) {
     this._name = name;
@@ -306,7 +307,7 @@ Book.description =
 
 const Pistol = new Item("Pistol");
 Pistol.description =
-  "which is a powerful weapon with bullets, which you can <u><strong>collect</strong></u> in this room";
+  "which is a powerful weapon, which you can <u><strong>collect</strong></u> in this room";
 
 const Sword = new Item("Sword");
 Sword.description =
@@ -322,7 +323,7 @@ CityCastle.item = "";
 
 // Set up items
 const Manuscript = new wrongItem("Manuscript");
-Manuscript.description = "which is a magical item ";
+Manuscript.description = "which helped to defeat a similar enemy in the past";
 
 const Knife = new wrongItem("Knife");
 Knife.description = "which is also effective in self-defence";
@@ -330,7 +331,7 @@ Knife.description = "which is also effective in self-defence";
 const Nunchaku = new wrongItem("Nunchaku");
 Nunchaku.description = "which is a magical item";
 
-//  Assign wrong items to rooms
+//  Assign Wrong Items to rooms
 PoliceStation.wrongItem = Knife;
 KarateDojo.wrongItem = Nunchaku;
 Library.wrongItem = Manuscript;
@@ -338,14 +339,14 @@ Library.wrongItem = Manuscript;
 MeatShop.wrongItem = "";
 CityCastle.wrongItem = "";
 
-// Allow user to collect item by pushing it to the array
+// Allow user to collect Item by pushing it to the array
 const itemsCreatedFromClass = [];
 
 itemsCreatedFromClass.push(Sword);
 itemsCreatedFromClass.push(Book);
 itemsCreatedFromClass.push(Pistol);
 
-// allow user to collect wrong item by pushing it to the array
+// allow user to collect Wrong Item by pushing it to the array
 const wrongItemsCreatedFromClass = [];
 
 wrongItemsCreatedFromClass.push(Knife);
@@ -366,7 +367,7 @@ KarateMushroom.weakness = "pistol";
 const WizardMushroom = new Enemy("Wizard Mushroom");
 WizardMushroom.conversation =
   "<strong>I deserve to be a new King of the Mushroom Land</strong>. <br><em><strong>OPTIONS:</strong></em> You can <u><strong>open</strong></u> the book that you collected in the previous room and try to read magic spell to defeat the Wizard <strong>OR</strong> you can <u><strong>hit</strong></u> the Wizard with the book. Make the right choice to win the Game!</br>";
-WizardMushroom.description = "an angry wizard";
+WizardMushroom.description = "your arch enemy";
 WizardMushroom.weakness = "book";
 
 const PoliceMushroom = new Character("Police Officer Mushroom");
@@ -484,7 +485,7 @@ function startGame() {
 }
 
 let userItems = [];
-
+// function to collect Item by pushing it to the array userItems
 function collectItem(itemName) {
   console.log(itemName);
   console.log(currentRoom);
@@ -523,7 +524,7 @@ function collectItem(itemName) {
 }
 
 let wrongUserItems = [];
-
+// function to collect Item by pushing it to the array wrongUserItems
 function collectWrongItem(wrongitemName) {
   console.log(wrongitemName);
   console.log(currentRoom);
