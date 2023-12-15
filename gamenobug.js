@@ -479,7 +479,7 @@ function collectItem(itemName) {
     setTimeout(() => {
       notificationElement.innerHTML = "";
     }, 2000);
-  }
+  } 
 }
 
 let wrongUserItems = [];
@@ -518,7 +518,7 @@ function collectWrongItem(wrongitemName) {
   } else {
     const wrongnotificationElement = document.getElementById("textnotif");
     wrongnotificationElement.innerHTML =
-      "<p>Sorry! There is no such item in this location. Try again :)</p>";
+      "<p>Sorry! Your inventory is full or there is no such item in this location. Try again :)</p>";
 
     // Set a timeout to clear the notification after a few seconds (3 seconds)
     setTimeout(() => {
